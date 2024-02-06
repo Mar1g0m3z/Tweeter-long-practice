@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block main %}
-    <form action="" method="post" class="tweet">
-        <div>
-            {{form.author.label}}
-            {{ form.author }}
-            {{form.tweet.label}}
-            {{ form.tweet }}
-            {{ form.submit }}
-        </div>
-    </form>
+<form action="" method="post" class="tweet" novalidate>
+    {{ form.hidden_tag() }}
+    <div>
+        {{form.author.label}}
+        {{ form.author }}
+        {{form.tweet.label}}
+        {{ form.tweet }}
+        {{ form.submit() }}
+    </div>
+</form>
 {% endblock %}
