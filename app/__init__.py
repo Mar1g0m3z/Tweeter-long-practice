@@ -3,6 +3,7 @@ from flask import (Flask, render_template)
 from .config import Config
 from .tweets import tweets
 from random import randint
+from .form.form import NewTweet
 
 app = Flask(__name__)
 
@@ -20,3 +21,8 @@ def index():
 @app.route("/feed")
 def feed():
     return render_template("feed.html", tweets=tweets)
+
+@app.route("/new")
+def new_tweet():
+    form = NewTweet()
+    return render_template("new_tweet.html", form=form)
